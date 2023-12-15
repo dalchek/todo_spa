@@ -12,7 +12,7 @@
         />
     </head>
     <body>
-        <div class="jumbotron text-center">
+        <div class="p-5 bg-primary text-white text-center">
             <h3>To do app</h3>
             <div class="row">
                 <div class="col-6 offset-3">
@@ -23,7 +23,7 @@
                             placeholder="new message"
                         />
                         <div class="input-group-append">
-                            <button id="addBtn" class="btn btn-sm btn-primary">
+                            <button id="addBtn" class="btn btn-sm btn-success">
                                 Create
                             </button>
                         </div>
@@ -34,32 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-10 offset-1">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <button
-                                        class="btn btn-sm btn-secondary float-left"
-                                    >
-                                        Todo: 1
-                                    </button>
-                                    <button
-                                        class="btn btn-sm btn-success float-end"
-                                    >
-                                        Sun 15.05
-                                    </button>
-                                </div>
-                                <div class="card-body text-center">
-                                    <h3>Uciti MongoDb</h3>
-                                </div>
-                                <div class="card-footer text-center">
-                                    <button class="btn btn-sm btn-danger">
-                                        Delete
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="main-row" class="row"></div>
                 </div>
             </div>
         </div>

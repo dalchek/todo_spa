@@ -18,7 +18,11 @@ app.post('/save', (req, res) => {
         }
     );
 });
-
+app.get('/get_data', (req, res) => {
+    db.todos.find((err,data) => {
+        res.send(data)
+    })
+})
 app.listen(3000, () => {
     console.log('Listening on port 3000');
 });
