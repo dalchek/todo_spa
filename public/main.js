@@ -49,7 +49,9 @@ function displayTodos() {
                         <h3>${data[i].msg}</h3>
                     </div>
                     <div class="card-footer text-center">
-                        <button class="btn btn-sm btn-danger">
+                        <button data-id="${
+                            data[i]._id
+                        }" class="btn btn-sm btn-danger">
                             Delete
                         </button>
                     </div>
@@ -58,7 +60,23 @@ function displayTodos() {
             `;
         }
         mainRow.innerHTML = text;
+        let allDeleteBtns = document.querySelectorAll('[data-id]');
+
+        for (let i = 0; i < allDeleteBtns.length; i++) {
+            allDeleteBtns[i].addEventListener('click', deleteTodo);
+        }
     });
 }
 
 displayTodos();
+function deleteTodo() {
+    let xml = new XMLHttpRequest();
+    xml.open('post', '/delete');
+    xml.onreadystatechange = () => {
+        if (xml.readyState == 4 && xml.status == 200) {
+            displayTodos();
+        }
+    };
+    xml.setRequestHeader('Content-Type', 'application/json');
+    xml.send(JSON.stringify({id: this.getAttribute('data-id')}));
+}

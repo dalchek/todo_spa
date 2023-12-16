@@ -19,10 +19,18 @@ app.post('/save', (req, res) => {
     );
 });
 app.get('/get_data', (req, res) => {
-    db.todos.find((err,data) => {
-        res.send(data)
-    })
-})
+    db.todos.find((err, data) => {
+        res.send(data);
+    });
+});
+
+app.post('/delete', (req, res) => {
+    let id = req.body.id;
+    db.todos.remove({_id: db.ObjectId(id)}, (err, data) => {
+        res.send('Deleted');
+    });
+});
+
 app.listen(3000, () => {
     console.log('Listening on port 3000');
 });
